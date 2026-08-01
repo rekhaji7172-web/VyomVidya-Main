@@ -5,6 +5,7 @@ import '../../../../core/animations/app_animations.dart';
 import '../../../../core/theme/theme.dart';
 import '../../domain/models/task.dart';
 import '../../domain/models/task_category.dart';
+import '../../domain/models/task_priority.dart';
 
 class TaskTile extends StatelessWidget {
   const TaskTile({
@@ -104,7 +105,7 @@ class TaskTile extends StatelessWidget {
       builder: (context) => AlertDialog(
         backgroundColor: AppColors.elevated,
         shape: RoundedRectangleBorder(borderRadius: AppRadius.lgRadius),
-        title: const Text('Delete task?', style: AppTypography.h3),
+        title: Text('Delete task?', style: AppTypography.h3),
         content: Text('"${task.title}" will be permanently deleted.', style: AppTypography.bodyMediumMuted),
         actions: [
           TextButton(onPressed: () => Navigator.of(context).pop(false), child: const Text('Cancel')),
