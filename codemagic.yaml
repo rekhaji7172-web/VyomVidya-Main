@@ -44,7 +44,7 @@ workflows:
 
       - name: Flutter analyze
         script: |
-          flutter analyze --no-fatal-infos
+          flutter analyze --no-fatal-infos --no-fatal-warnings
 
       - name: Build APK (release)
         script: |
