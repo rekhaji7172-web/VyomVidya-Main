@@ -1,0 +1,42 @@
+{
+  "@@locale": "en",
+
+  "appName": "VyomVidya",
+  "@appName": {
+    "description": "The application name, shown on splash and app bar."
+  },
+
+  "navDashboard": "Dashboard",
+  "navAiAssistant": "AI",
+  "navTasks": "Tasks",
+  "navProgress": "Progress",
+  "navProfile": "Profile",
+
+  "quickActionFocusSession": "Focus Session",
+  "quickActionNewTask": "New Task",
+  "quickActionNotes": "Notes",
+  "quickActionFlashcards": "Flashcards",
+  "quickActionAiAssistant": "AI Assistant",
+
+  "commonRetry": "Retry",
+  "commonCancel": "Cancel",
+  "commonSave": "Save",
+  "commonDelete": "Delete",
+  "commonEdit": "Edit",
+  "commonClose": "Close",
+  "commonLoading": "Loading…",
+  "commonSeeAll": "See all",
+  "commonComingSoon": "Coming soon",
+
+  "errorGenericTitle": "Something went wrong",
+  "errorGenericMessage": "We couldn't load this right now. Please try again.",
+  "errorNoInternetTitle": "No internet connection",
+  "errorNoInternetMessage": "Check your connection. Your changes will sync automatically once you're back online.",
+
+  "emptyStateDefaultTitle": "Nothing here yet",
+  "emptyStateDefaultMessage": "Once you add something, it will show up here.",
+
+  "syncPending": "Syncing…",
+  "syncComplete": "All changes synced",
+  "syncOffline": "Offline — changes saved locally"
+}

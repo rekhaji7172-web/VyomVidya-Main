@@ -1,0 +1,18 @@
+include: package:very_good_analysis/analysis_options.yaml
+
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "lib/l10n/**"
+  errors:
+    # Downgrade during active foundation work; keep as warnings not hard failures.
+    public_member_api_docs: ignore
+
+linter:
+  rules:
+    # VyomVidya uses trailing commas consistently for widget-tree readability.
+    require_trailing_commas: true
+    # Project prefers relative imports within lib/ for feature portability.
+    prefer_relative_imports: true
+    always_use_package_imports: false

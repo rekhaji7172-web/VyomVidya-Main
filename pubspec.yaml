@@ -1,0 +1,84 @@
+name: vyomvidya
+description: "VyomVidya — AI-powered Study Workspace"
+publish_to: "none"
+version: 0.1.0+1
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # State management
+  flutter_riverpod: ^2.5.1
+  riverpod_annotation: ^2.3.5
+
+  # Navigation
+  go_router: ^14.2.0
+
+  # Models / serialization (ready for Phase 2+ domain models)
+  freezed_annotation: ^2.4.4
+  json_annotation: ^4.9.0
+
+  # Offline storage
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
+  # Connectivity (sync engine)
+  connectivity_plus: ^6.0.5
+
+  # Local preferences (settings, locale, feature-flag fallback cache)
+  shared_preferences: ^2.2.3
+
+  # Fonts (Plus Jakarta Sans / DM Sans / JetBrains Mono, matches V0 design tokens)
+  google_fonts: ^6.2.1
+
+  # Animation helpers
+  flutter_animate: ^4.5.0
+
+  # Intl (used by generated localizations). Deliberately unpinned —
+  # flutter_localizations (SDK-bundled) requires an EXACT intl version tied
+  # to whatever Flutter SDK version Codemagic resolves under "stable" at
+  # build time. A hardcoded caret range here risks a version-solving
+  # conflict we have no way to predict without a real `flutter pub get`.
+  # Letting pub resolve it transitively avoids that whole failure class.
+  intl: any
+
+  # Logging
+  logger: ^2.4.0
+
+  # Local ID generation (offline-first records need a stable id before any
+  # remote backend exists to assign one)
+  uuid: ^4.4.0
+
+  cupertino_icons: ^1.0.8
+  characters: ^1.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Code generation
+  build_runner: ^2.4.11
+  freezed: ^2.5.7
+  json_serializable: ^6.8.0
+  riverpod_generator: ^2.4.0
+
+  # Lint / static analysis
+  flutter_lints: ^4.0.0
+  very_good_analysis: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  generate: true # enables flutter gen-l10n via l10n.yaml
+
+  assets:
+    - assets/images/
+    - assets/images/tree/
+    - assets/images/onboarding/
+    - assets/images/categories/
+    - assets/images/preferences/
+    - assets/icons/

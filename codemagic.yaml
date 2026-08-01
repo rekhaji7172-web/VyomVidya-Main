@@ -1,0 +1,70 @@
+workflows:
+  vyomvidya-android:
+    name: VyomVidya - Android Build
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      # android_signing:
+      #   - vyomvidya_keystore
+      # NOTE: commented out until this signing group actually exists in
+      # the Codemagic dashboard. Codemagic validates referenced signing
+      # groups before the build starts — leaving this uncommented with no
+      # matching group configured fails the build before any script runs.
+      # Release APKs/AABs built without it use the debug keystore (see
+      # android/app/build.gradle) — fine for internal testing, not for
+      # Play Store. Uncomment once the group is created.
+    scripts:
+      - name: Flutter pub get
+        # Must run before the Gradle wrapper bootstrap step below: this is
+        # what creates android/local.properties (flutter.sdk path etc.).
+        # android/settings.gradle's pluginManagement block reads that file
+        # to locate the Flutter SDK — if it doesn't exist yet, even the
+        # `gradle wrapper` task fails while configuring the project.
+        script: |
+          flutter pub get
+
+      - name: Bootstrap Gradle wrapper
+        # gradle-wrapper.jar is a binary file that can't be hand-authored
+        # outside a real Gradle/Flutter environment, so it isn't committed
+        # to this repo. This one command regenerates gradlew, gradlew.bat,
+        # AND gradle-wrapper.jar together using the Gradle already
+        # installed on the Codemagic image — safe to run every build,
+        # touches nothing else in android/. Must run AFTER "Flutter pub
+        # get" (see note above).
+        script: |
+          cd android
+          gradle wrapper --gradle-version 8.4 --distribution-type all
+          cd ..
+
+      # No build_runner step yet — Phase 1/2 domain models are hand-written
+      # (not @freezed) specifically so the app doesn't need a codegen step
+      # to compile. Add a `dart run build_runner build
+      # --delete-conflicting-outputs` step here the day a feature actually
+      # adds a @freezed/json_serializable model.
+
+      - name: Flutter analyze
+        script: |
+          flutter analyze --no-fatal-infos
+
+      - name: Build APK (release)
+        script: |
+          flutter build apk --release
+
+      - name: Build App Bundle (release)
+        script: |
+          flutter build appbundle --release
+
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
+      - build/app/outputs/bundle/release/app-release.aab
+      - build/app/outputs/**/mapping.txt
+
+    # publishing:
+    #   email:
+    #     recipients:
+    #       - your-email@example.com
+    #     notify:
+    #       success: true
+    #       failure: true
+    # NOTE: commented out — replace with a real address and uncomment
+    # when you want build-status emails. Left in for reference.
