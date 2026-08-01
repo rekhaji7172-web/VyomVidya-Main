@@ -16,3 +16,13 @@ linter:
     # Project prefers relative imports within lib/ for feature portability.
     prefer_relative_imports: true
     always_use_package_imports: false
+    # Purely cosmetic, not a correctness concern — very_good_analysis's 80-char
+    # limit is stricter than dart format's own wrapping in deeply-nested widget
+    # trees with named parameters. Disabled rather than manually reformatting
+    # hundreds of lines that are already dart-format-clean.
+    lines_longer_than_80_chars: false
+    # pubspec.yaml groups dependencies by purpose with explanatory comments
+    # (see the file itself) rather than strict alphabetical order — that
+    # grouping is more useful for a team than A-Z sorting, so this rule is
+    # off rather than flattening those comments away.
+    sort_pub_dependencies: false
