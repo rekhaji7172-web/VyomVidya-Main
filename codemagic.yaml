@@ -62,7 +62,7 @@ workflows:
     # publishing:
     #   email:
     #     recipients:
-    #       - your-email@example.com
+    #       - rekhaji7172@gmail.com
     #     notify:
     #       success: true
     #       failure: true
