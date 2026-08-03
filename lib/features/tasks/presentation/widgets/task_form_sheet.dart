@@ -239,8 +239,8 @@ class _TaskFormSheetState extends ConsumerState<TaskFormSheet> {
       builder: (context) => AlertDialog(
         backgroundColor: AppColors.elevated,
         shape: RoundedRectangleBorder(borderRadius: AppRadius.lgRadius),
-        title: const Text('Set a time?', style: AppTypography.h3),
-        content: const Text('Add a specific time, or just set the date.', style: AppTypography.bodyMediumMuted),
+        title: Text('Set a time?', style: AppTypography.h3),
+        content: Text('Add a specific time, or just set the date.', style: AppTypography.bodyMediumMuted),
         actions: [
           TextButton(onPressed: () => Navigator.of(context).pop(false), child: const Text('Just the date')),
           TextButton(onPressed: () => Navigator.of(context).pop(true), child: const Text('Add time')),
