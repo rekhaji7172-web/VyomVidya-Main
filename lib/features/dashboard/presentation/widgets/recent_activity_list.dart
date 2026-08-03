@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import '../../../../core/theme/theme.dart';
 import '../../../../core/widgets/widgets.dart';
 import '../../domain/models/activity_entry.dart';
+import '../../domain/models/activity_type.dart';
 import '../providers/dashboard_providers.dart';
 
 class RecentActivityList extends ConsumerWidget {
