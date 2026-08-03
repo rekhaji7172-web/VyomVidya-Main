@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/animations/animations.dart';
 import '../../../../core/theme/theme.dart';
 import '../../../../core/widgets/widgets.dart';
-import '../../domain/models/task.dart';
 import '../../domain/models/task_category.dart';
 import '../../domain/models/task_priority.dart';
 import '../providers/task_actions_controller.dart';
